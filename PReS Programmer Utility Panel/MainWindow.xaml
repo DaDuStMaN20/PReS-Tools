@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PReS_Programmer_Utility_Panel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="PReS Programmer Utility Panel" Height="450" Width="800">
     <Grid>
         <TabControl HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MinWidth="770" MinHeight="377">
             <TabControl.RenderTransform>
