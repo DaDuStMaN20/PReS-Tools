@@ -56,10 +56,20 @@ namespace PReS_Programmer_Utility_Panel
 
             if (selectedIndex != -1)
             {
-               
+
                 //copy to clipboard
+                //TRY CATCH pop up thing that asks to close VNC viewer if it is open
+
+                try
+                {
+                    System.Windows.Clipboard.SetText(actualClipboard[selectedIndex].ToString());
+                }
+                catch(Exception err)
+                {
+                    System.Windows.MessageBox.Show("An error occurred while trying to copy to the clipboard. You may want to try closing " +
+                        "VNC Viewer. \n\nERROR MESSAGE: " + err);
+                }
                 
-                System.Windows.Clipboard.SetText(actualClipboard[selectedIndex].ToString());
                 //move the item up to the top of the list using the method
                 MoveToTop(selectedIndex);
                 //rebuild the list
@@ -163,6 +173,24 @@ namespace PReS_Programmer_Utility_Panel
         }
 
         //Shortcuts
+        public void ShortcutHandler(object sender, NHotkeyHotkeyEventArgs e)
+        {
+            switch (e.Name)
+            {
+                case "NewPractice":
+                    SendTextOut(";ITR DW Added New Practice DATE ");
+                    break;
+                case "Prog":
+                    SendTextOut("_prog(ITR)_");
+                    break;
+                case "NewLogo":
+                    SendTextOut(";ITR DW Added Logo DATE ");
+                    break;
+                case "ITR":
+                    SendTextOut("ITR");
+                    break;
+            }
+        }
         public void NewPracticeHandler(object sender, NHotkey.HotkeyEventArgs e)
         {
             SendTextOut(";ITR DW Added New Practice DATE ");
